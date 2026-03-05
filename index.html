@@ -104,11 +104,18 @@
             position: relative;
         }
         
-        /* ===== LOGO IMAGEN ===== */
+        /* ===== LOGO IMAGEN - MÁS GRANDE ===== */
         .logo-img {
-            height: 50px;
+            height: 70px;  /* Aumentado de 50px a 70px */
             width: auto;
             display: block;
+        }
+        
+        /* Aún más grande en desktop */
+        @media (min-width: 768px) {
+            .logo-img {
+                height: 80px;  /* 80px en pantallas grandes */
+            }
         }
         
         /* ===== HEADER ===== */
@@ -509,6 +516,16 @@
             margin-bottom: 20px;
         }
         
+        .footer-logo .logo-img {
+            height: 60px;  /* Logo del footer un poco más pequeño que el header */
+        }
+        
+        @media (min-width: 768px) {
+            .footer-logo .logo-img {
+                height: 70px;
+            }
+        }
+        
         /* ===== MODAL ===== */
         .modal {
             display: none;
@@ -579,11 +596,11 @@
     </style>
 </head>
 <body>
-    <!-- HEADER CON LOGO IMAGEN (HOSTING) -->
+    <!-- HEADER CON LOGO MÁS GRANDE -->
     <header>
         <div class="header-content">
             <a href="#" class="logo">
-                <img src="https://i.postimg.cc/6qvgy2Sc/LOGO.png" alt="Fontana Designs" class="logo-img">
+                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Fontana Designs" class="logo-img">
             </a>
             
             <div class="nav-links">
@@ -764,7 +781,7 @@
         </section>
     </main>
 
-    <!-- FOOTER CON LOGO IMAGEN -->
+    <!-- FOOTER CON LOGO MÁS GRANDE -->
     <footer>
         <div class="container">
             <div class="footer-logo">
