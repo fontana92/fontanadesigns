@@ -31,11 +31,11 @@
             --card-bg: #f9f9f9;
             --hover: #f0f0f0;
             
-            /* NUEVO: Gris para header y títulos */
-            --header-bg: #f5f5f7;  /* Gris suave elegante */
-            --title-bg: #f2f2f4;    /* Gris ligeramente diferente para títulos */
+            /* Grises */
+            --header-bg: #f5f5f7;
+            --title-bg: #f2f2f4;
             
-            /* Color de acento */
+            /* Color de acento - Dorado */
             --color-accent: #b88b4a;
             --color-accent-light: #e5d5b3;
             --color-accent-bg: #fcf8f0;
@@ -105,7 +105,74 @@
             position: relative;
         }
         
-        /* ===== NUEVO: Estilo para títulos con fondo gris full width ===== */
+        /* ===== LOGO STYLES ===== */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-decoration: none;
+        }
+        
+        .logo-top {
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+        
+        .logo-main {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        
+        .logo-main span {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            padding: 15px 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* ===== SECTION HEADERS ===== */
         .section-header {
             background-color: var(--title-bg);
             padding: 60px 0;
@@ -132,53 +199,7 @@
             margin-bottom: 0;
         }
         
-        /* ===== HEADER CON FONDO GRIS FULL WIDTH ===== */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--header-bg);
-            padding: 20px 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
-            color: var(--text);
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 48px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover {
-            color: var(--color-accent);
-        }
-        
-        /* ===== HERO (sin fondo gris, se mantiene blanco) ===== */
+        /* ===== HERO ===== */
         .hero {
             padding: 180px 0 100px;
             background: var(--bg);
@@ -345,10 +366,6 @@
             background-position: center 30%;
         }
         
-        .demo-image.felistyle, .demo-image.colchonetas {
-            background-color: var(--color-accent-bg);
-        }
-        
         .demo-content {
             padding: 30px;
         }
@@ -508,6 +525,16 @@
             text-decoration: none;
         }
         
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo {
+            align-items: center;
+        }
+        
         /* ===== MODAL ===== */
         .modal {
             display: none;
@@ -578,10 +605,13 @@
     </style>
 </head>
 <body>
-    <!-- HEADER CON FONDO GRIS -->
+    <!-- HEADER CON LOGO -->
     <header>
         <div class="header-content">
-            <a href="#" class="logo">Fontana <span class="accent-color">Designs</span></a>
+            <a href="#" class="logo">
+                <span class="logo-top">FONTANA</span>
+                <span class="logo-main"><span>DESIGNS</span></span>
+            </a>
             
             <div class="nav-links">
                 <a href="#servicios">Servicios</a>
@@ -592,7 +622,7 @@
     </header>
 
     <main>
-        <!-- HERO (blanco) -->
+        <!-- HERO -->
         <section class="hero">
             <div class="container hero-content">
                 <h1>Desarrollo web <br>para negocios que <span class="hero-highlight">quieren crecer</span>.</h1>
@@ -604,7 +634,7 @@
             </div>
         </section>
 
-        <!-- SERVICIOS CON HEADER GRIS -->
+        <!-- SERVICIOS -->
         <div class="section-header">
             <div class="container">
                 <h2>Servicios</h2>
@@ -639,7 +669,7 @@
             </div>
         </section>
 
-        <!-- DEMOS CON HEADER GRIS -->
+        <!-- DEMOS -->
         <div class="section-header">
             <div class="container">
                 <h2>Proyectos en vivo</h2>
@@ -697,7 +727,7 @@
             </div>
         </section>
 
-        <!-- CONTACTO CON HEADER GRIS -->
+        <!-- CONTACTO -->
         <div class="section-header">
             <div class="container">
                 <h2>Conversemos</h2>
@@ -761,10 +791,18 @@
         </section>
     </main>
 
-    <!-- FOOTER CON FONDO GRIS -->
+    <!-- FOOTER CON LOGO -->
     <footer>
-        <div class="container footer-bottom">
-            <p>© 2024 <a href="#">Fontana Designs</a> — Desarrollo web profesional</p>
+        <div class="container">
+            <div class="footer-logo">
+                <a href="#" class="logo">
+                    <span class="logo-top">FONTANA</span>
+                    <span class="logo-main"><span>DESIGNS</span></span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Fontana Designs — Desarrollo web profesional</p>
+            </div>
         </div>
     </footer>
 
