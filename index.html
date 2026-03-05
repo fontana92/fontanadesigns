@@ -13,27 +13,34 @@
     <meta property="og:title" content="Fontana Designs">
     <meta property="og:description" content="Desarrollo web profesional para negocios que quieren crecer.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070">
     
-    <!-- Fuentes más PRO -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ===== VARIABLES - Paleta más profesional ===== */
+        /* ===== VARIABLES - Paleta profesional con toque de color ===== */
         :root {
             --bg: #ffffff;
-            --text: #1e1e1e;
+            --text: #1a1a1a;
             --text-light: #5e5e5e;
             --accent: #2b2b2b;
             --border: #eaeaea;
             --card-bg: #f9f9f9;
             --hover: #f0f0f0;
             
+            /* Toque de color - Ámbar / Dorado (profesional y cálido) */
+            --color-accent: #b88b4a;
+            --color-accent-light: #e5d5b3;
+            --color-accent-bg: #fcf8f0;
+            
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             
             --shadow-sm: 0 5px 15px rgba(0,0,0,0.02);
             --shadow-md: 0 10px 30px rgba(0,0,0,0.03);
+            --shadow-hover: 0 20px 40px rgba(184, 139, 74, 0.08);
             --transition: all 0.2s ease;
         }
         
@@ -101,6 +108,7 @@
             padding: 20px 0;
             z-index: 100;
             border-bottom: 1px solid var(--border);
+            transition: var(--transition);
         }
         
         .header-content {
@@ -131,10 +139,10 @@
         }
         
         .nav-links a:hover {
-            color: var(--text);
+            color: var(--color-accent);
         }
         
-        /* ===== HERO - Simple y directo ===== */
+        /* ===== HERO ===== */
         .hero {
             padding: 180px 0 100px;
             max-width: 800px;
@@ -143,6 +151,10 @@
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
+        }
+        
+        .hero-highlight {
+            color: var(--color-accent);
         }
         
         /* ===== BOTONES ===== */
@@ -176,9 +188,19 @@
         .btn-outline:hover {
             background: var(--hover);
             border-color: var(--text);
+            color: var(--text);
         }
         
-        /* ===== SERVICIOS - Tarjetas limpias ===== */
+        .btn-accent {
+            background: var(--color-accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #9e7a42;
+        }
+        
+        /* ===== SERVICIOS ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -191,16 +213,19 @@
             background: var(--card-bg);
             border-radius: 20px;
             transition: var(--transition);
+            border-bottom: 2px solid transparent;
         }
         
         .service-card:hover {
             background: var(--hover);
+            border-bottom-color: var(--color-accent);
+            transform: translateY(-5px);
         }
         
         .service-icon {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: var(--text);
+            color: var(--color-accent);
         }
         
         .service-card h3 {
@@ -215,10 +240,10 @@
         
         .price {
             font-weight: 600;
-            color: var(--text);
+            color: var(--color-accent);
         }
         
-        /* ===== DEMOS - Lo más importante ===== */
+        /* ===== DEMOS - CON SCREENSHOTS REALES ===== */
         .demos-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -237,20 +262,49 @@
             border-radius: 20px;
             overflow: hidden;
             transition: var(--transition);
+            border: 1px solid var(--border);
         }
         
         .demo-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-accent-light);
         }
         
+        /* SCREENSHOTS REALES */
         .demo-image {
-            height: 200px;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 3rem;
+            height: 220px;
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 70%, rgba(0,0,0,0.05));
+            pointer-events: none;
+        }
+        
+        .demo-image.felistyle {
+            background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
+            background-position: center 20%;
+        }
+        
+        .demo-image.colchonetas {
+            background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070');
+            background-position: center 30%;
+        }
+        
+        /* Fallback si no cargan las imágenes */
+        .demo-image.felistyle, .demo-image.colchonetas {
+            background-color: var(--color-accent-bg);
         }
         
         .demo-content {
@@ -265,6 +319,7 @@
             display: flex;
             gap: 8px;
             margin: 15px 0;
+            flex-wrap: wrap;
         }
         
         .demo-tag {
@@ -273,6 +328,13 @@
             background: white;
             border-radius: 20px;
             color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+        
+        .demo-tag.accent {
+            background: var(--color-accent-bg);
+            color: var(--color-accent);
+            border-color: var(--color-accent-light);
         }
         
         .demo-buttons {
@@ -293,15 +355,22 @@
             font-weight: 500;
             font-size: 0.9rem;
             transition: var(--transition);
+            cursor: pointer;
         }
         
         .demo-btn:hover {
-            background: var(--accent);
+            background: var(--color-accent);
             color: white;
-            border-color: var(--accent);
+            border-color: var(--color-accent);
         }
         
-        /* ===== CONTACTO MINIMAL ===== */
+        .demo-btn.whatsapp:hover {
+            background: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+        
+        /* ===== CONTACTO ===== */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -325,12 +394,13 @@
         .contact-icon {
             width: 48px;
             height: 48px;
-            background: var(--card-bg);
+            background: var(--color-accent-bg);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            color: var(--color-accent);
         }
         
         .contact-item h4 {
@@ -340,6 +410,11 @@
         .contact-item a {
             color: var(--text-light);
             text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item a:hover {
+            color: var(--color-accent);
         }
         
         .form-group {
@@ -354,23 +429,31 @@
             font-family: inherit;
             font-size: 0.95rem;
             transition: var(--transition);
+            background: var(--bg);
         }
         
         .form-input:focus {
             outline: none;
-            border-color: var(--text);
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(184, 139, 74, 0.1);
         }
         
         /* ===== FOOTER ===== */
         footer {
             padding: 60px 0 30px;
             border-top: 1px solid var(--border);
+            background: var(--color-accent-bg);
         }
         
         .footer-bottom {
             text-align: center;
             color: var(--text-light);
             font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: var(--color-accent);
+            text-decoration: none;
         }
         
         /* ===== MODAL ===== */
@@ -382,9 +465,11 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         
         .modal.active {
@@ -393,11 +478,13 @@
         
         .modal-content {
             background: white;
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             height: 90vh;
             border-radius: 20px;
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
         
         .modal-close {
@@ -411,92 +498,101 @@
             border: 1px solid var(--border);
             cursor: pointer;
             z-index: 10;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
         }
         
         .modal-close:hover {
-            background: var(--hover);
+            background: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+            transform: rotate(90deg);
         }
         
         iframe {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 20px;
         }
         
         /* ===== UTILIDADES ===== */
         .text-light { color: var(--text-light); }
         .mt-2 { margin-top: 20px; }
-        .flex { display: flex; gap: 15px; }
+        .flex { display: flex; gap: 15px; flex-wrap: wrap; }
+        .accent-color { color: var(--color-accent); }
+        .accent-bg { background: var(--color-accent-bg); }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Fontana Designs</a>
+            <a href="#" class="logo">Fontana <span class="accent-color">Designs</span></a>
             
             <div class="nav-links">
                 <a href="#servicios">Servicios</a>
-                <a href="#demos">Demos</a>
+                <a href="#demos">Proyectos</a>
                 <a href="#contacto">Contacto</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- HERO - Directo al punto -->
+        <!-- HERO -->
         <section class="hero container">
-            <h1>Desarrollo web <br>para negocios que quieren crecer.</h1>
+            <h1>Desarrollo web <br>para negocios que <span class="hero-highlight">quieren crecer</span>.</h1>
             <p>Landing pages, catálogos digitales y sistemas de reservas que convierten visitantes en clientes. Simple, rápido y sin vueltas.</p>
             <div class="flex">
-                <a href="#demos" class="btn">Ver proyectos →</a>
+                <a href="#demos" class="btn">Ver proyectos <i class="fas fa-arrow-right"></i></a>
                 <a href="#contacto" class="btn btn-outline">Conversemos</a>
             </div>
         </section>
 
-        <!-- SERVICIOS - Solo lo esencial -->
+        <!-- SERVICIOS -->
         <section id="servicios" class="container">
             <h2>Servicios</h2>
-            <p class="text-light">Elegí el plan que mejor se adapte a tu negocio.</p>
+            <p class="text-light">Todo lo que necesitás para tener presencia profesional online.</p>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🖥️</div>
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Landing Page</h3>
-                    <p>Página profesional para campañas o lanzamientos. Ideal para empezar.</p>
+                    <p>Ideal para campañas, lanzamientos o promociones. Diseño enfocado en conversión.</p>
                     <div class="price">$80.000</div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
                     <h3>Catálogo Digital</h3>
-                    <p>Sistema autogestionable con carrito y WhatsApp. Como las demos.</p>
+                    <p>Sistema autogestionable con carrito y WhatsApp. Como los proyectos que ves abajo.</p>
                     <div class="price">$150.000</div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
                     <h3>Web Corporativa</h3>
-                    <p>Sitio completo con panel de administración y SEO optimizado.</p>
+                    <p>Sitio profesional con panel de administración, blog y SEO optimizado.</p>
                     <div class="price">$200.000</div>
                 </div>
             </div>
         </section>
 
-        <!-- DEMOS - Tus proyectos estrella -->
+        <!-- DEMOS - CON SCREENSHOTS REALES -->
         <section id="demos" class="container">
             <h2>Proyectos en vivo</h2>
-            <p class="text-light">Probá mis sistemas funcionando. Ambos son 100% reales.</p>
+            <p class="text-light">Hacé click y probá mis sistemas funcionando. Ambos son 100% reales.</p>
             
             <div class="demos-grid">
                 <!-- Feli_Style Barbería -->
                 <div class="demo-card">
-                    <div class="demo-image">✂️</div>
+                    <div class="demo-image felistyle"></div>
                     <div class="demo-content">
                         <h3>Feli_Style Barbería</h3>
-                        <p>Sistema de reservas con agenda online y confirmación por WhatsApp.</p>
+                        <p>Sistema de reservas con agenda online, selección de servicios y confirmación por WhatsApp.</p>
                         <div class="demo-tags">
-                            <span class="demo-tag">Agenda</span>
+                            <span class="demo-tag accent">Agenda</span>
                             <span class="demo-tag">WhatsApp</span>
                             <span class="demo-tag">Premium</span>
                         </div>
@@ -504,7 +600,7 @@
                             <button class="demo-btn" onclick="openDemo('felistyle')">
                                 <i class="fas fa-play"></i> Ver demo
                             </button>
-                            <button class="demo-btn" onclick="contactar('Feli_Style')">
+                            <button class="demo-btn whatsapp" onclick="contactar('Feli_Style Barbería')">
                                 <i class="fab fa-whatsapp"></i> Contratar
                             </button>
                         </div>
@@ -513,12 +609,12 @@
                 
                 <!-- Mundo Colchonetas -->
                 <div class="demo-card">
-                    <div class="demo-image">🛏️</div>
+                    <div class="demo-image colchonetas"></div>
                     <div class="demo-content">
                         <h3>Mundo Colchonetas</h3>
-                        <p>Catálogo digital con Google Sheets, carrito y checkout por WhatsApp.</p>
+                        <p>Catálogo digital con sincronización Google Sheets, carrito de compras y checkout por WhatsApp.</p>
                         <div class="demo-tags">
-                            <span class="demo-tag">E-commerce</span>
+                            <span class="demo-tag accent">E-commerce</span>
                             <span class="demo-tag">Google Sheets</span>
                             <span class="demo-tag">Carrito</span>
                         </div>
@@ -526,7 +622,7 @@
                             <button class="demo-btn" onclick="openDemo('colchonetas')">
                                 <i class="fas fa-play"></i> Ver demo
                             </button>
-                            <button class="demo-btn" onclick="contactar('Mundo Colchonetas')">
+                            <button class="demo-btn whatsapp" onclick="contactar('Mundo Colchonetas')">
                                 <i class="fab fa-whatsapp"></i> Contratar
                             </button>
                         </div>
@@ -535,10 +631,10 @@
             </div>
         </section>
 
-        <!-- CONTACTO - Simple y directo -->
+        <!-- CONTACTO -->
         <section id="contacto" class="container">
             <h2>Conversemos</h2>
-            <p class="text-light">Presupuesto gratuito en menos de 24hs.</p>
+            <p class="text-light">Presupuesto gratuito. Respuesta en menos de 24hs.</p>
             
             <div class="contact-grid">
                 <div>
@@ -562,20 +658,20 @@
                         <div class="contact-icon"><i class="far fa-clock"></i></div>
                         <div>
                             <h4>Respuesta</h4>
-                            <p class="text-light">Menos de 2 horas</p>
+                            <p class="text-light">Menos de 2 horas hábiles</p>
                         </div>
                     </div>
                 </div>
                 
                 <form id="contactForm">
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Nombre" required>
+                        <input type="text" class="form-input" name="nombre" placeholder="Nombre" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="WhatsApp o Email" required>
+                        <input type="text" class="form-input" name="contacto" placeholder="WhatsApp o Email" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-input" required>
+                        <select class="form-input" name="tipo" required>
                             <option value="">¿Qué necesitas?</option>
                             <option value="landing">Landing Page</option>
                             <option value="catalogo">Catálogo Digital</option>
@@ -583,9 +679,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-input" rows="4" placeholder="Contame sobre tu proyecto..."></textarea>
+                        <textarea class="form-input" name="mensaje" rows="4" placeholder="Contame sobre tu proyecto..."></textarea>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;">
+                    <button type="submit" class="btn btn-accent" style="width: 100%;">
                         Enviar consulta <i class="fas fa-arrow-right"></i>
                     </button>
                 </form>
@@ -595,7 +691,7 @@
 
     <footer>
         <div class="container footer-bottom">
-            <p>© 2024 Fontana Designs — Desarrollo web profesional</p>
+            <p>© 2024 <a href="#">Fontana Designs</a> — Desarrollo web profesional</p>
         </div>
     </footer>
 
@@ -603,7 +699,7 @@
     <div class="modal" id="demoModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeDemo()">✕</button>
-            <iframe id="demoIframe"></iframe>
+            <iframe id="demoIframe" title="Demo"></iframe>
         </div>
     </div>
 
@@ -629,7 +725,7 @@
         }
 
         function contactar(proyecto) {
-            const msg = `Hola! Me interesa el proyecto ${proyecto}. ¿Podemos hablar?`;
+            const msg = `Hola! Me interesa el proyecto "${proyecto}". ¿Podemos hablar?`;
             window.open(`https://wa.me/${YOUR_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
@@ -637,10 +733,7 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
-            const msg = `Hola! Soy ${formData.get('nombre') || 'cliente'}. 
-Necesito: ${formData.get('tipo') || 'información'}
-Mensaje: ${formData.get('mensaje') || 'Consulta'}
-Contacto: ${formData.get('contacto') || 'No especificado'}`;
+            const msg = `Hola! Soy ${formData.get('nombre') || 'cliente'}.\n\nNecesito: ${formData.get('tipo') || 'información'}\nMensaje: ${formData.get('mensaje') || 'Consulta'}\nContacto: ${formData.get('contacto') || 'No especificado'}`;
             
             window.open(`https://wa.me/${YOUR_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
             this.reset();
@@ -656,16 +749,27 @@ Contacto: ${formData.get('contacto') || 'No especificado'}`;
             if (e.target === document.getElementById('demoModal')) closeDemo();
         });
 
-        // Header transparente al scrollear
+        // Header efecto al scrollear
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                header.style.background = 'rgba(255,255,255,0.95)';
-                header.style.boxShadow = 'var(--shadow-sm)';
+                header.style.background = 'rgba(255,255,255,0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.03)';
             } else {
                 header.style.background = 'rgba(255,255,255,0.9)';
                 header.style.boxShadow = 'none';
             }
+        });
+
+        // Smooth scroll para los links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
     </script>
 </body>
