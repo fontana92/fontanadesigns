@@ -105,32 +105,11 @@
             position: relative;
         }
         
-        /* ===== LOGO STYLES ===== */
-        .logo {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            text-decoration: none;
-        }
-        
-        .logo-top {
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-        
-        .logo-main {
-            font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: -0.02em;
-            color: var(--text);
-        }
-        
-        .logo-main span {
-            color: var(--color-accent);
-            font-weight: 800;
+        /* ===== LOGO IMAGEN ===== */
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
         }
         
         /* ===== HEADER ===== */
@@ -531,10 +510,6 @@
             margin-bottom: 20px;
         }
         
-        .footer-logo .logo {
-            align-items: center;
-        }
-        
         /* ===== MODAL ===== */
         .modal {
             display: none;
@@ -605,12 +580,11 @@
     </style>
 </head>
 <body>
-    <!-- HEADER CON LOGO -->
+    <!-- HEADER CON LOGO IMAGEN -->
     <header>
         <div class="header-content">
             <a href="#" class="logo">
-                <span class="logo-top">FONTANA</span>
-                <span class="logo-main"><span>DESIGNS</span></span>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI2LTAzLTA1PC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmM5NjFhYjA3LTgxZDMtNDI4Ny1hYzJhLWI5MWM4OTI2NTU0YzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5GT05UQU5BIERFU0lHTlMgLSBCbGFjbyB5IE9ybyAob2JsaXF1YSkgLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cgq5qg5qAAACYklEQVR4nO3dMU4bQRiG0R9I3DIVV+AanIGaG7iIqKLiHlyAa3AET0JDRQEiSkcTKhgrK2vP/rPvWSnN80lR5Hhn9o8d2/F4BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8P9Oph+fTqc/L+Wv8tfy5/Jk+jnWsgZ5KP9b/qV8Kv9Y/qH8Xfk25R/KX5dflO+lfCvlWynfSvmj8n35S8q3Ur6V8i2Vb6l8S+VbKt9S+ZbKt1S+pfItlW+pfEvlWyofAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPy78+WiWSwWv1t/FotF6r8j68ViUf/+rBeLxfKzWCzq32/rf2v9/a0f61l/FotFfV+3Wq3G5+fncdd1z/P5vHscDofHw+Fw2u/3z7vdbty2bYwQd7vdeL/fx/P5PI7jOEIIY4QQIYSx67qx6zqEEEIIIXRdN3ZdFyKEg4gQEV3XjRERQsg6IoSQdUQIIeuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBDC/wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9jX0o5V3HZvL57AAAAAElFTkSuQmCC" alt="Fontana Designs" class="logo-img">
             </a>
             
             <div class="nav-links">
@@ -791,13 +765,12 @@
         </section>
     </main>
 
-    <!-- FOOTER CON LOGO -->
+    <!-- FOOTER CON LOGO IMAGEN -->
     <footer>
         <div class="container">
             <div class="footer-logo">
                 <a href="#" class="logo">
-                    <span class="logo-top">FONTANA</span>
-                    <span class="logo-main"><span>DESIGNS</span></span>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI2LTAzLTA1PC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmM5NjFhYjA3LTgxZDMtNDI4Ny1hYzJhLWI5MWM4OTI2NTU0YzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5GT05UQU5BIERFU0lHTlMgLSBCbGFjbyB5IE9ybyAob2JsaXF1YSkgLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cgq5qg5qAAACYklEQVR4nO3dMU4bQRiG0R9I3DIVV+AanIGaG7iIqKLiHlyAa3AET0JDRQEiSkcTKhgrK2vP/rPvWSnN80lR5Hhn9o8d2/F4BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8P9Oph+fTqc/L+Wv8tfy5/Jk+jnWsgZ5KP9b/qV8Kv9Y/qH8Xfk25R/KX5dflO+lfCvlWynfSvmj8n35S8q3Ur6V8i2Vb6l8S+VbKt9S+ZbKt1S+pfItlW+pfEvlWyofAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPy78+WiWSwWv1t/FotF6r8j68ViUf/+rBeLxfKzWCzq32/rf2v9/a0f61l/FotFfV+3Wq3G5+fncdd1z/P5vHscDofHw+Fw2u/3z7vdbty2bYwQd7vdeL/fx/P5PI7jOEIIY4QQIYSx67qx6zqEEEIIIXRdN3ZdFyKEg4gQEV3XjRERQsg6IoSQdUQIIeuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBAi64gQIuuIECLriBDC/wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9jX0o5V3HZvL57AAAAAElFTkSuQmCC" alt="Fontana Designs" class="logo-img">
                 </a>
             </div>
             <div class="footer-bottom">
